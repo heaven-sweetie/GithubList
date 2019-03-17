@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5715E1DC223E6B2000DB8311 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = 5715E1DB223E6B2000DB8311 /* Cell.m */; };
 		57315ADA222B7F1F003F531B /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 57315AD9222B7F1F003F531B /* AppDelegate.m */; };
 		57315ADD222B7F1F003F531B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 57315ADC222B7F1F003F531B /* ViewController.m */; };
 		57315AE0222B7F1F003F531B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 57315ADE222B7F1F003F531B /* Main.storyboard */; };
@@ -20,6 +21,7 @@
 		57315B0C222C0DEF003F531B /* NSDictionary+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 57315B0B222C0DEF003F531B /* NSDictionary+API.m */; };
 		57315B0F222C0E3E003F531B /* NSMutableURLRequest+API.m in Sources */ = {isa = PBXBuildFile; fileRef = 57315B0E222C0E3E003F531B /* NSMutableURLRequest+API.m */; };
 		57315B12222C0F50003F531B /* APIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 57315B11222C0F50003F531B /* APIResponse.m */; };
+		5794DFEE222D538500D79F91 /* CellData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5794DFED222D538500D79F91 /* CellData.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +35,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5715E1DB223E6B2000DB8311 /* Cell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+		5715E1E0223E6CF100DB8311 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
 		57315AD5222B7F1F003F531B /* GithubList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GithubList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		57315AD8222B7F1F003F531B /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		57315AD9222B7F1F003F531B /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -58,6 +62,8 @@
 		57315B0E222C0E3E003F531B /* NSMutableURLRequest+API.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSMutableURLRequest+API.m"; sourceTree = "<group>"; };
 		57315B10222C0F50003F531B /* APIResponse.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIResponse.h; sourceTree = "<group>"; };
 		57315B11222C0F50003F531B /* APIResponse.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = APIResponse.m; sourceTree = "<group>"; };
+		5794DFEC222D538500D79F91 /* CellData.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CellData.h; sourceTree = "<group>"; };
+		5794DFED222D538500D79F91 /* CellData.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CellData.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5715E1D9223E6B1200DB8311 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				5715E1E0223E6CF100DB8311 /* Cell.h */,
+				5715E1DB223E6B2000DB8311 /* Cell.m */,
+				5794DFEC222D538500D79F91 /* CellData.h */,
+				5794DFED222D538500D79F91 /* CellData.m */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		57315ACC222B7F1F003F531B = {
 			isa = PBXGroup;
 			children = (
@@ -124,6 +141,7 @@
 		57315AFC222C0B2C003F531B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				5715E1D9223E6B1200DB8311 /* Cell */,
 				57315AFE222C0B4F003F531B /* ViewModel */,
 				57315ADB222B7F1F003F531B /* ViewController.h */,
 				57315ADC222B7F1F003F531B /* ViewController.m */,
@@ -277,10 +295,12 @@
 				57315ADD222B7F1F003F531B /* ViewController.m in Sources */,
 				57315B05222C0D15003F531B /* APIService.m in Sources */,
 				57315B08222C0D4D003F531B /* APIRequest.m in Sources */,
+				5794DFEE222D538500D79F91 /* CellData.m in Sources */,
 				57315B12222C0F50003F531B /* APIResponse.m in Sources */,
 				57315AE8222B7F21003F531B /* main.m in Sources */,
 				57315B01222C0BAA003F531B /* ViewModel.m in Sources */,
 				57315B0C222C0DEF003F531B /* NSDictionary+API.m in Sources */,
+				5715E1DC223E6B2000DB8311 /* Cell.m in Sources */,
 				57315ADA222B7F1F003F531B /* AppDelegate.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

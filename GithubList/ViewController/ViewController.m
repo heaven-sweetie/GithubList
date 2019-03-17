@@ -2,13 +2,16 @@
 #import "ViewController.h"
 
 #import "ViewModel.h"
+#import "CellData.h"
+#import "Cell.h"
 
 
 @interface ViewController ()
-<UITableViewDataSource>
+<UITableViewDataSource, UITableViewDelegate>
 
 @property (nonatomic, weak) IBOutlet UITableView *tableView;
 @property (nonatomic, strong) ViewModel *viewModel;
+@property (nonatomic, strong) NSArray<CellData *> *cellDataList;
 
 @end
 
@@ -19,26 +22,46 @@
 
 - (void)configureData {
     __weak typeof(self) weakSelf = self;
-    [self.viewModel namesWith:^{
+    [self.viewModel namesWith:^(NSArray<NSString *> *names) {
+        __block NSMutableArray *cellDataList = [NSMutableArray array];
+        [names enumerateObjectsUsingBlock:^(NSString *name, NSUInteger idx, BOOL *stop) {
+            CellData *cellObject = [CellData new];
+            cellObject.cellClass = Cell.class;
+            cellObject.content = name;
+            [cellDataList addObject:cellObject];
+        }];
+        weakSelf.cellDataList = cellDataList;
+        [weakSelf registCells];
+        
         [weakSelf.tableView reloadData];
     }];
 }
 
 - (void)registCells {
-    [self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:@"Cell"];
+    [self.cellDataList enumerateObjectsUsingBlock:^(CellData *data, NSUInteger idx, BOOL *stop) {
+        [self.tableView registerClass:data.cellClass forCellReuseIdentifier:data.identifier];
+    }];
 }
 
 
 // MARK: - UITableViewDataSource
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.viewModel.numberOfNames;
+    return self.cellDataList.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"Cell" forIndexPath:indexPath];
-    cell.textLabel.text = [self.viewModel nameAt:indexPath.row];
+    CellData *cellData = self.cellDataList[indexPath.row];
+    Cell *cell = [tableView dequeueReusableCellWithIdentifier:cellData.identifier forIndexPath:indexPath];
+    cell.data = cellData;
     return cell;
+}
+
+
+// MARK: - UITableViewDelegate
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.cellDataList[indexPath.row].height;
 }
 
 
@@ -57,7 +80,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    [self registCells];
     [self configureData];
 }
 

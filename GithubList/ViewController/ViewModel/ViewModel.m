@@ -1,7 +1,6 @@
 
 #import "ViewModel.h"
 
-
 #import "APIService.h"
 
 
@@ -15,7 +14,7 @@
 
 @implementation ViewModel
 
-- (void)namesWith:(void (^)(void))completion {
+- (void)namesWith:(void (^)(NSArray<NSString *> *))completion {
     APIRequest *request = [APIRequest requestWith:^(APIRequestBuilder *builder) {
         builder.method = GET;
         builder.path = @"/search/repositories";
@@ -26,7 +25,7 @@
     [self.apiService requestBy:request with:^(APIResponse *response) {
         NSArray *items = response.parsedData[@"items"];
         weakSelf.names = [items valueForKeyPath:@"full_name"];
-        completion();
+        completion(weakSelf.names);
     }];
 }
 

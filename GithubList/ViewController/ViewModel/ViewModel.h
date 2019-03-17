@@ -6,7 +6,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ViewModel : NSObject
 
-- (void)namesWith:(void(^)(void))completion;
+- (void)namesWith:(void(^)(NSArray<NSString *> *))completion;
 
 @property (nonatomic, readonly) NSInteger numberOfNames;
 
